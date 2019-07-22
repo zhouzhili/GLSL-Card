@@ -34,7 +34,7 @@ glsl中的向量(vec2,vec3,vec4)往往有特殊的含义,比如可能代表了�
 
 `vector.rgba`  其中rgba 可以任意组合
 
-`vector.stpq`  其中rgba 可以任意组合
+`vector.stpq`  其中stpq 可以任意组合
 
 ```cpp
 vec4 v=vec4(1.0,2.0,3.0,1.0);
@@ -46,8 +46,8 @@ vec3 xyz = v.xyz; //vec3(1.0,2.0,3.0)
 vec3 xyz1 = vec(v[0],v[1],v[2]); //vec3(1.0,2.0,3.0)
 vec3 rgb = v.rgb; //vec3(1.0,2.0,3.0)
 
-vec2 xyzw = v.xyzw; //vec4(1.0,2.0,3.0,1.0);
-vec2 rgba = v.rgba; //vec4(1.0,2.0,3.0,1.0);
+vec4 xyzw = v.xyzw; //vec4(1.0,2.0,3.0,1.0);
+vec4 rgba = v.rgba; //vec4(1.0,2.0,3.0,1.0);
 
 ```
 
@@ -408,7 +408,7 @@ f(3.3); //传入的 3.3是高精度
 
 __invariant关键字:__
 
-由于shader在编译时会进行一些内部优化,可能会导致同样的运算在不同shader里结果不一定精确相等.这会引起一些问题,尤其是vertx shader向fragmeng shader传值的时候.
+由于shader在编译时会进行一些内部优化,可能会导致同样的运算在不同shader里结果不一定精确相等.这会引起一些问题,尤其是vertex shader向fragmeng shader传值的时候.
 所以我们需要使用`invariant` 关键字来显式要求计算结果必须精确一致. 当然我们也可使用 `#pragma STDGL invariant(all)`来命令所有输出变量必须精确一致,
 但这样会限制编译器优化程度,降低性能.
 
